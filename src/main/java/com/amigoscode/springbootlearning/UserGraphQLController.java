@@ -1,43 +1,18 @@
 package com.amigoscode.springbootlearning;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
+import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.graphql.data.method.annotation.Argument;
+
 import java.util.List;
 
-// STEP : 1
-//@RestController
-//public class HelloController {
-//    @GetMapping("/hello")
-//    public String hello() {
-//        return "Hello Spring Boot!";
-//    }
-//}
-
-// STEP : 2
-//@RestController
-//public class HelloController {
-//
-//    @CrossOrigin(origins = "http://localhost:5000")
-//    @GetMapping("/user")
-//    public User getUser() {
-//        return new User(
-//                "Chethan",
-//                "Frontend Developer"
-//        );
-//    }
-//}
-
-// STEP : 3
-@RestController
-public class HelloController {
-
-   @CrossOrigin(origins = "http://localhost:5000")
-    @GetMapping("/users")
-    public List<User> getUsers() {
+@Controller
+public class UserGraphQLController {
+    @QueryMapping
+    public List<User> users() {
         return List.of(
                 new User("Chethan", "Frontend Developer"),
                 new User("Rahul", "Backend Developer"),
-                new User("Ankit", "QA Engineer"),
                 new User("Priya", "UI Designer"),
                 new User("Amit", "DevOps Engineer"),
                 new User("Sneha", "Business Analyst"),
@@ -187,4 +162,78 @@ public class HelloController {
                 new User("Sindhu", "Full Stack Developer")
         );
     }
+
+    @QueryMapping
+    public List<User> usersByType(@Argument EmployeeType type) {
+
+        if (type == EmployeeType.DEV_EMPLOYEE) {
+            return List.of(
+                    new User("Chethan", "Frontend Developer"),
+                    new User("Rahul", "Backend Developer"),
+                    new User("Ankit", "QA Engineer"),
+                    new User("Vikram", "Backend Developer"),
+                    new User("Neha", "Frontend Developer"),
+                    new User("Karan", "QA Engineer"),
+                    new User("Krishna", "Full Stack Developer"),
+                    new User("Pranav", "Backend Developer"),
+                    new User("Karthik", "Frontend Developer"),
+                    new User("Deepak", "QA Engineer")
+            );
+        }
+
+        else if (type == EmployeeType.PRODUCT_TEAM_EMPLOYEE) {
+            return List.of(
+                    new User("Priya", "Product Manager"),
+                    new User("Sneha", "Product Owner"),
+                    new User("Rohit", "Scrum Master"),
+                    new User("Kavya", "UI/UX Designer"),
+                    new User("Amit", "Project Coordinator"),
+                    new User("Pooja", "Product Analyst"),
+                    new User("Divya", "Business Analyst"),
+                    new User("Meera", "UX Researcher"),
+                    new User("Ishita", "Product Designer"),
+                    new User("Tanvi", "Requirements Analyst")
+            );
+        }
+
+        else if (type == EmployeeType.TOP_MANAGEMENT) {
+            return List.of(
+                    new User("Ramesh", "CEO"),
+                    new User("Suresh", "Vice President"),
+                    new User("Anand", "Business Unit Owner"),
+                    new User("Meera", "Director"),
+                    new User("Rajesh", "Chief Technology Officer"),
+                    new User("Sunil", "Chief Operating Officer"),
+                    new User("Mahesh", "Chief Financial Officer"),
+                    new User("Arvind", "Senior Vice President"),
+                    new User("Kiran", "Head of Engineering"),
+                    new User("Deepa", "Head of Product")
+            );
+        }
+
+        return List.of(
+                // DEV_EMPLOYEE
+                new User("Chethan", "Frontend Developer"),
+                new User("Rahul", "Backend Developer"),
+                new User("Ankit", "QA Engineer"),
+                new User("Vikram", "Backend Developer"),
+                new User("Neha", "Frontend Developer"),
+
+                // PRODUCT_TEAM_EMPLOYEE
+                new User("Priya", "Product Manager"),
+                new User("Sneha", "Product Owner"),
+                new User("Rohit", "Scrum Master"),
+                new User("Kavya", "UI/UX Designer"),
+                new User("Amit", "Project Coordinator"),
+
+                // TOP_MANAGEMENT
+                new User("Ramesh", "CEO"),
+                new User("Suresh", "Vice President"),
+                new User("Anand", "Business Unit Owner"),
+                new User("Meera", "Director"),
+                new User("Rajesh", "Chief Technology Officer")
+        );
+    }
+
 }
+

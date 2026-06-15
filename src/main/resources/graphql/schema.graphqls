@@ -1,0 +1,15 @@
+enum EmployeeType {
+    DEV_EMPLOYEE
+    PRODUCT_TEAM_EMPLOYEE
+    TOP_MANAGEMENT
+}
+
+type User {
+    name: String
+    role: String
+}
+
+type Query {
+    users: [User]
+    usersByType(type: EmployeeType): [User]
+}
