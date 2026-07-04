@@ -15,6 +15,8 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.addAllowedOrigin("http://localhost:5000");
+        config.addAllowedOrigin("https://my-react-concepts.onrender.com");
+
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
