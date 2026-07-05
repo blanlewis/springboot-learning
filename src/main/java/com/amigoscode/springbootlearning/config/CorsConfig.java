@@ -1,4 +1,4 @@
-package com.amigoscode.springbootlearning;
+package com.amigoscode.springbootlearning.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

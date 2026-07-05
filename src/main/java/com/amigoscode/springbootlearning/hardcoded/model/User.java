@@ -1,4 +1,4 @@
-package com.amigoscode.springbootlearning;
+package com.amigoscode.springbootlearning.hardcoded.model;
 
 public class User {
     private String name;

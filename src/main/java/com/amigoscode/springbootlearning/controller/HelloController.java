@@ -1,4 +1,5 @@
-package com.amigoscode.springbootlearning;
+package com.amigoscode.springbootlearning.controller;
+import com.amigoscode.springbootlearning.hardcoded.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;

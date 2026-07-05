@@ -1,4 +1,4 @@
-package com.amigoscode.springbootlearning;
+package com.amigoscode.springbootlearning.hardcoded.model;
 
 public enum EmployeeType {
     DEV_EMPLOYEE,

@@ -1,5 +1,7 @@
-package com.amigoscode.springbootlearning;
+package com.amigoscode.springbootlearning.controller;
 
+import com.amigoscode.springbootlearning.hardcoded.model.EmployeeType;
+import com.amigoscode.springbootlearning.hardcoded.model.User;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.graphql.data.method.annotation.Argument;
